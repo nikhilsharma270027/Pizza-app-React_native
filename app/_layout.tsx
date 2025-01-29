@@ -32,8 +32,8 @@ export default function RootLayout() {
       <Stack>
         {/* <Stack.Screen name="Welcome" components={Spl}  /> */}
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="Sign-in" options={{ presentation: "modal" }} />
-        <Stack.Screen name="Sign-up" options={{ presentation: "modal" }} />
+        {/* <Stack.Screen name="Sign-in" options={{ presentation: "modal" }} /> */}
+        {/* <Stack.Screen name="Sign-up" options={{ presentation: "modal" }} /> */}
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />

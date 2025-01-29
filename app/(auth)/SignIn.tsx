@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Discount = () => {
+const SignIn = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Discount = () => {
   )
 }
 
-export default Discount
+export default SignIn

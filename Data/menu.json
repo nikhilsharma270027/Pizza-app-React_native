@@ -1,0 +1,35 @@
+[
+    {
+      "key": 1,
+      "name": "Margherita Pizza",
+      "image": "https://example.com/images/margherita.jpg",
+      "description": "A classic pizza with tomato sauce, mozzarella, and fresh basil.",
+      "price": 12.99,
+      "category": "Starters"
+    },
+    {
+      "key": 2,
+      "name": "Spaghetti Carbonara",
+      "image": "https://example.com/images/spaghetti.jpg",
+      "description": "A traditional Italian pasta dish with eggs, cheese, pancetta, and pepper.",
+      "price": 14.99,
+      "category": "Italian"
+    },
+    {
+      "key": 3,
+      "name": "Tacos",
+      "image": "https://example.com/images/tacos.jpg",
+      "description": "Soft corn tortillas filled with seasoned meat and fresh vegetables.",
+      "price": 9.99,
+      "category": "Mexican"
+    },
+    {
+      "key": 4,
+      "name": "Grilled Chicken",
+      "image": "https://example.com/images/chicken.jpg",
+      "description": "Juicy grilled chicken served with a side of vegetables.",
+      "price": 16.99,
+      "category": "Grilled"
+    }
+  ]
+  

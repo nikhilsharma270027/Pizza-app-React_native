@@ -25,11 +25,14 @@ export default function TabLayout() {
           },
           default: {},
         }),
+        headerStyle: { backgroundColor: "#FAB678" },
+          headerTitleStyle: { color: "#fff", fontSize: 22 },
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
+          headerTitle: "Welcome to Pizza App",
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
       />

@@ -8,7 +8,7 @@ import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import SplashScreen from '../Welcome';
 
-export default function TabTwoScreen() {
+export default function Explore() {
   return (
     <view>
       {/* <SplashScreen /> */}
