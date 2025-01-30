@@ -13,6 +13,7 @@ import useAppwrite from "@/lib/useAppwrite";
 import { getAllPizza } from "@/lib/appwrite";
 import EmptyState from "@/components/EmptyState";
 import ImageCard from "@/components/ImageCard";
+import { Link } from "expo-router";
 // interface Item {
 //   key: number;
 //   name: string;
@@ -29,6 +30,7 @@ const MenuTab: any = [
 export default function Index() {
   const { data: pizza, isLoading, refetch } = useAppwrite(getAllPizza);
   const category = "starters";
+  console.log(pizza)
 
   const filteredMeny = menuData.filter(
     (Itemdata) => Itemdata.category === category
@@ -75,7 +77,7 @@ export default function Index() {
           //ListHeaderComponent: It is rendered at the top of all the items.
           ListHeaderComponent={() => (
             <View className="flex my-6 px-4 space-y-6">
-              <View className="justify-between items-start flex-row m-6">
+              <View className="justify-start items-start flex-row m-6">
                 <View className="">
                   <Text className="font-pmedium text-sm text text-gray-100">
                     Welcome back
@@ -91,6 +93,16 @@ export default function Index() {
             </Text>
           ))}
         </View>
+        <View className="flex justify-center pt-5 flex-row gap-2">
+                    <Text className="text-lg text-gray-100 font-pregular">
+                      Don't have an account?
+                    </Text>
+                    <Link
+                      href="/Sign-in"
+                      className="text-lg font-psemibold text-secondary">
+                      Signup
+                    </Link>
+                  </View>
               </View>
 
               {/* <SearchInput />

@@ -25,12 +25,11 @@ export default function TabLayout() {
           },
           default: {},
         }),
-        headerStyle: { backgroundColor: "#FAB678" },
-          headerTitleStyle: { color: "#fff", fontSize: 22 },
       }}>
       <Tabs.Screen
         name="index"
         options={{
+          headerShown: true,
           title: 'Home',
           headerTitle: "Welcome to Pizza App",
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
@@ -39,6 +38,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
+          headerShown: true,
           title: 'Explore',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
@@ -46,6 +46,15 @@ export default function TabLayout() {
       <Tabs.Screen
         name="App"
         options={{
+          headerShown: true,
+          title: 'Bro',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="Discount"
+        options={{
+          headerShown: true,
           title: 'Bro',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}

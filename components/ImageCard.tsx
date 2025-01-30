@@ -15,6 +15,10 @@ const ImageCard: React.FC<ImageCardProps> = ({ name, description, image, price }
         source={{ uri: image }}
         style={styles.image}
       />
+      <Image
+        source={{ uri: "https://cloud.appwrite.io/v1/storage/buckets/679a45cf002f77bae9c6/files/679a5c73002f83621ad8/view?project=6798eff10028b27c0360&mode=admin" }}
+        style={styles.image}
+      />
       <View style={styles.details}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.description}>{description}</Text>

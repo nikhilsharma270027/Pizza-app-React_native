@@ -15,7 +15,7 @@ export default function SplashScreen({ navigation }: any) {
       />
       <Button
         title="Next"
-        onPress={() => router.push("/(tabs)")} // Navigate to tabs screen
+        onPress={() => router.push("/Sign-in")} // Navigate to tabs screen
       />
     </View>
   );

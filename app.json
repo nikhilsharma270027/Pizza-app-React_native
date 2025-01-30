@@ -17,7 +17,11 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.nikhil.pizza"
+      "package": "com.nikhil.pizza",
+      "permissions": [
+            "INTERNET",
+            "ACCESS_NETWORK_STATE"
+          ]
     },
     "web": {
       "bundler": "metro",

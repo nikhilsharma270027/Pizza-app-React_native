@@ -1,4 +1,4 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { StyleSheet, Image, Platform, View } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
@@ -10,9 +10,9 @@ import SplashScreen from '../Welcome';
 
 export default function Explore() {
   return (
-    <view>
+    <View>
       {/* <SplashScreen /> */}
-    </view>
+    </View>
   );
 }
 
