@@ -1,68 +1,81 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Dimensions } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
 interface ImageCardProps {
   name: string;
   description: string;
   image: string;
-  price: string;
+  price: number;
 }
 
-const ImageCard: React.FC<ImageCardProps> = ({ name, description, image, price }) => {
-  const validImageUrl = image?.startsWith("http") ? image : "https://via.placeholder.com/150";
+const ImageCard = ({ name, description, image, price }: ImageCardProps) => {
+  const validImageUrl = image?.startsWith("http")
+    ? image
+    : "https://via.placeholder.com/150";
 
   return (
     <View style={styles.card}>
-      <Image
-        source={{ uri: validImageUrl }}
-        style={styles.image}
-        onError={(error) => console.error("Image Loading Error:", error)}
-      />
-      {/* <Image
-        source={{ uri: "https://cloud.appwrite.io/v1/storage/buckets/679a45cf002f77bae9c6/files/679a5c73002f83621ad8/view?project=6798eff10028b27c0360&mode=admin" }}
-        style={styles.image}
-      /> */}
-      <View style={styles.details}>
-        <Text style={styles.name}>{name}</Text>
+      <Image source={{ uri: validImageUrl }} style={styles.image} />
+      <View style={styles.content}>
+        <View style={styles.row}>
+          <Text style={styles.name}>{name}</Text>
+          <Text style={styles.price}>${price}</Text>
+        </View>
         <Text style={styles.description}>{description}</Text>
-        <Text style={styles.price}>${price}</Text>
+        {/* Full-width "Add" button */}
+        <TouchableOpacity style={styles.addButton}>
+          <Text style={styles.addButtonText}>Add</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-const windowWidth = Dimensions.get("window").width;
-
 const styles = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
-    borderRadius: 8,
+    borderRadius: 10,
     overflow: "hidden",
-    margin: 8,
-    width: windowWidth / 2 - 16, // Ensure two cards fit side by side with margin
-    elevation: 4,
+    margin: 10,
+    width: "45%",
   },
   image: {
-    width: 150,
+    width: "100%",
     height: 150,
-    alignContent: "center",
-    resizeMode: "contain",
   },
-  details: {
+  content: {
     padding: 10,
+  },
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   name: {
     fontSize: 16,
     fontWeight: "bold",
   },
+  price: {
+    fontSize: 14,
+    color: "#FF5722",
+    fontWeight: "600",
+  },
   description: {
     fontSize: 12,
     color: "#666",
-    marginVertical: 4,
+    marginTop: 4,
   },
-  price: {
-    fontSize: 14,
-    color: "#ff5722",
+  addButton: {
+    backgroundColor: "#FF5722",
+    borderRadius: 8,
+    paddingVertical: 10,
+    alignItems: "center",
+    marginTop: 10,
+    width: "100%",
+  },
+  addButtonText: {
+    color: "#fff",
+    fontSize: 16,
     fontWeight: "bold",
   },
 });
