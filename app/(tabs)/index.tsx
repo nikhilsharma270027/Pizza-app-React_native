@@ -14,10 +14,14 @@ import { getAllPizza } from "@/lib/appwrite";
 import EmptyState from "@/components/EmptyState";
 import ImageCard from "@/components/ImageCard";
 import { Link } from "expo-router";
+import { useGlobalContext } from "@/context/GlobalProvider";
 // interface Item {
 //   key: number;
 //   name: string;
 // }
+interface user {
+  username: string;
+}
 
 const MenuTab: any = [
   { key: 1, name: "Starters" },
@@ -28,9 +32,10 @@ const MenuTab: any = [
 ];
 
 export default function Index() {
+  const { user, setUser, setIsLogged } = useGlobalContext();
   const { data: pizza, isLoading, refetch } = useAppwrite(getAllPizza);
   const category = "starters";
-  console.log(pizza)
+  console.log(pizza);
 
   const filteredMeny = menuData.filter(
     (Itemdata) => Itemdata.category === category
@@ -68,7 +73,7 @@ export default function Index() {
             <ImageCard
               name={item.name}
               description={item.description}
-              image={item.imageUrl}
+              image={item.image}
               price={item.price}
             />
           )}
@@ -79,30 +84,31 @@ export default function Index() {
             <View className="flex my-6 px-4 space-y-6">
               <View className="justify-start items-start flex-row m-6">
                 <View className="">
-                  <Text className="font-pmedium text-sm text text-gray-100">
+                  <Text className="font-pmedium text-xl text text-red-500">
                     Welcome back
                   </Text>
-                  <Text className="text-2xl font-psemibold text-white">
-                    {/* {user?.username} */}Nikhil
+                  <Text className="text-2xl font-psemibold text-red">
+                    {/* @ts-ignore */}
+                    {user?.username}
                   </Text>
-                </View>
-                <View style={styles.viewRow}>
-          {MenuTab.map((item: any) => (
-            <Text style={styles.text} key={item.key}>
-              {item.name}
-            </Text>
-          ))}
-        </View>
-        <View className="flex justify-center pt-5 flex-row gap-2">
-                    <Text className="text-lg text-gray-100 font-pregular">
-                      Don't have an account?
-                    </Text>
-                    <Link
-                      href="/Sign-in"
-                      className="text-lg font-psemibold text-secondary">
-                      Signup
-                    </Link>
+                  <View style={styles.viewRow}>
+                    {MenuTab.map((item: any) => (
+                      <Text style={styles.text} key={item.key}>
+                        {item.name}
+                      </Text>
+                    ))}
                   </View>
+                </View>
+                <View className="flex justify-center pt-5 flex-row gap-2">
+                  <Text className="text-lg text-gray-100 font-pregular">
+                    Don't have an account?
+                  </Text>
+                  <Link
+                    href="/Sign-in"
+                    className="text-lg font-psemibold text-secondary">
+                    Signup
+                  </Link>
+                </View>
               </View>
 
               {/* <SearchInput />

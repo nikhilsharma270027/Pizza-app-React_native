@@ -1,7 +1,7 @@
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
 // @ts-ignore
-// import { icons } from "../constants"
+import { icons } from "../constants"
 
 const Formfield = ({title, value, placeholder, handleChangeText, otherStyles, keyboardType,...props}:{
     title: string;
@@ -31,7 +31,8 @@ const Formfield = ({title, value, placeholder, handleChangeText, otherStyles, ke
         {title === 'Password' && (
             <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                 <Image 
-                    // source={!showPassword ? icons.eye : icons.eyeHide} 
+                    source={!showPassword ? icons.eye : icons.eyeHide} 
+                    // source={{uri: "https://cloud.appwrite.io/v1/storage/buckets/679a45cf002f77bae9c6/files/679a5c73002f83621ad8/view?project=6798eff10028b27c0360&mode=admin"}}
                     className="w-6 h-6"
                     resizeMode="contain"
                 />

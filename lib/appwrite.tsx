@@ -71,6 +71,16 @@ export async function signIn(email: string, password: string) {
   }
 }
 
+export async function signOut() {
+  try {
+    const session = await account.deleteSession('current');
+
+    return session;
+  } catch (error: any) {
+    throw new Error("Error during signOut",error);
+  }
+}
+
 // Get Account
 export async function getAccount() {
   try {

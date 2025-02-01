@@ -2,7 +2,7 @@ import { View, Text, ScrollView, Image, Alert } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-// import { images } from "@/constants";
+import { images } from "@/constants";
 import Formfield from "@/components/Formfield";
 import CustomButton from "@/components/CustomButton";
 import { Link, router } from "expo-router";
@@ -44,7 +44,7 @@ const SignIn = () => {
       <ScrollView>
         <View className="w-full justify-center min-h-[85vh] px-4 my-6">
           <Image
-            source={{uri: "https://cloud.appwrite.io/v1/storage/buckets/679a45cf002f77bae9c6/files/679a5c73002f83621ad8/view?project=6798eff10028b27c0360&mode=admin"}}
+            source={images.logo}
             resizeMode="contain"
             className="w-[115px] h-[35px]"
           />
@@ -78,7 +78,7 @@ const SignIn = () => {
               Don't have an account?
             </Text>
             <Link
-              href="/App"
+              href="/Sign-up"
               className="text-lg font-psemibold text-secondary">
               Signup
             </Link>

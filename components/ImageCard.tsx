@@ -9,16 +9,19 @@ interface ImageCardProps {
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({ name, description, image, price }) => {
+  const validImageUrl = image?.startsWith("http") ? image : "https://via.placeholder.com/150";
+
   return (
     <View style={styles.card}>
       <Image
-        source={{ uri: image }}
+        source={{ uri: validImageUrl }}
         style={styles.image}
+        onError={(error) => console.error("Image Loading Error:", error)}
       />
-      <Image
+      {/* <Image
         source={{ uri: "https://cloud.appwrite.io/v1/storage/buckets/679a45cf002f77bae9c6/files/679a5c73002f83621ad8/view?project=6798eff10028b27c0360&mode=admin" }}
         style={styles.image}
-      />
+      /> */}
       <View style={styles.details}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.description}>{description}</Text>
@@ -40,9 +43,10 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   image: {
-    width: "100%",
+    width: 150,
     height: 150,
-    resizeMode: "cover",
+    alignContent: "center",
+    resizeMode: "contain",
   },
   details: {
     padding: 10,

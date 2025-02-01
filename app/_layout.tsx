@@ -17,7 +17,7 @@ import "../global.css";
 // export default Slot;
 
 import { useColorScheme } from "@/hooks/useColorScheme";
-import GlobalProvider from "@/context/GlobalProvider";
+import GlobalProvider from "../context/GlobalProvider";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -43,8 +43,7 @@ const RootLayout = () => {
       <Stack>
         <Stack.Screen name="Welcome" />
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="Sign-in" options={{ presentation: "modal" }} />
-        <Stack.Screen name="Sign-up" options={{ presentation: "modal" }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
