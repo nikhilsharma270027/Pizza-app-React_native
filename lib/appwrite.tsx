@@ -20,7 +20,7 @@ client
     .setProject('6798eff10028b27c0360')
     .setPlatform('com.nikhil.pizza');
 
-const account = new Account(client);
+export const account = new Account(client);
 const avatars = new Avatars(client)
 const databases = new Databases(client)
 const storage = new Storage(client);

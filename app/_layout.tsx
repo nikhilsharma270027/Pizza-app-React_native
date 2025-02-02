@@ -18,6 +18,7 @@ import "../global.css";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 import GlobalProvider from "../context/GlobalProvider";
+import { CartProvider } from "@/context/CartContext";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -40,15 +41,17 @@ const RootLayout = () => {
 
   return (
     <GlobalProvider>
-      <Stack>
-        <Stack.Screen name="Welcome" />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
+      <CartProvider>
+        <Stack>
+          <Stack.Screen name="Welcome" options={{ headerShown: false }} />
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
+      </CartProvider>
     </GlobalProvider>
   );
-}
+};
 
 export default RootLayout;

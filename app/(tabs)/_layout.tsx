@@ -33,6 +33,9 @@ export default function TabLayout() {
           title: 'Home',
           headerTitle: "Welcome to Pizza App",
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          headerStyle: {
+            backgroundColor: 'red'
+          },
         }}
       />
       <Tabs.Screen
@@ -41,7 +44,11 @@ export default function TabLayout() {
           headerShown: true,
           title: 'Explore',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          headerStyle: {
+            backgroundColor: 'red'
+          },
         }}
+        
       />
       <Tabs.Screen
         name="App"
@@ -49,6 +56,9 @@ export default function TabLayout() {
           headerShown: true,
           title: 'Bro',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          headerStyle: {
+            backgroundColor: 'red'
+          },
         }}
       />
       <Tabs.Screen
@@ -57,6 +67,9 @@ export default function TabLayout() {
           headerShown: true,
           title: 'Bro',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          headerStyle: {
+            backgroundColor: 'red'
+          },
         }}
       />
     </Tabs>

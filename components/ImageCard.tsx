@@ -6,9 +6,10 @@ interface ImageCardProps {
   description: string;
   image: string;
   price: number;
+  onAddToCart: any;
 }
 
-const ImageCard = ({ name, description, image, price }: ImageCardProps) => {
+const ImageCard = ({ name, description, image, price, onAddToCart }: ImageCardProps) => {
   const validImageUrl = image?.startsWith("http")
     ? image
     : "https://via.placeholder.com/150";
@@ -23,7 +24,7 @@ const ImageCard = ({ name, description, image, price }: ImageCardProps) => {
         </View>
         <Text style={styles.description}>{description}</Text>
         {/* Full-width "Add" button */}
-        <TouchableOpacity style={styles.addButton}>
+        <TouchableOpacity style={styles.addButton} onPress={onAddToCart}>
           <Text style={styles.addButtonText}>Add</Text>
         </TouchableOpacity>
       </View>

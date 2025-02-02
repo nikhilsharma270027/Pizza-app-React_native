@@ -215,6 +215,16 @@ import EmptyState from "@/components/EmptyState";
 import ImageCard from "@/components/ImageCard";
 import { Link } from "expo-router";
 import { useGlobalContext } from "@/context/GlobalProvider";
+import { useCart } from "@/context/CartContext";
+import { Models } from "react-native-appwrite";
+interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
+}
+
 
 const MenuTab = [
   { key: "Starters", name: "Starters" },
@@ -223,13 +233,20 @@ const MenuTab = [
   { key: "Classical", name: "Classical" },
   { key: "Grilled", name: "Grilled" },
 ];
-
-export default function Index() {
-  const { user } = useGlobalContext();
-  const { data: pizza, isLoading, refetch } = useAppwrite(getAllPizza);
+// type CartItem = {
+  //   id: number;
+  //   name: string;
+  //   price: number;
+  // };
   
+  export default function Index() {
+    const { user } = useGlobalContext();
+    const { data: pizza, isLoading, refetch } = useAppwrite(getAllPizza);
+    const {addToCart: any} = useCart();
+    
   const [selectedCategory, setSelectedCategory] = useState("Starters");
   const [refreshing, setRefreshing] = useState(false);
+  const [cart, setCart] = useState([]);
 
   const onRefresh = async () => {
     setRefreshing(true);
@@ -241,6 +258,17 @@ export default function Index() {
     (item) => item.category === selectedCategory
   ) || [];
 
+  const addToCart = (item: Models.Document) => {
+    const cartItem: CartItem = {
+      id: item.$id,  // Assuming the Document has the $id property
+      name: item.name,
+      price: item.price,
+      description: item.description,
+      image: item.image,
+    };
+    setCart((prevCart): any => [...prevCart, cartItem]);
+  };
+  
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.view2}>
@@ -288,6 +316,7 @@ export default function Index() {
               description={item.description}
               image={item.image}
               price={item.price}
+              onAddToCart={() => addToCart(item)}
             />
           )}
           numColumns={2}
@@ -308,6 +337,7 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: -63,
     flex: 1,
     backgroundColor: "#ECE4D9",
   },
